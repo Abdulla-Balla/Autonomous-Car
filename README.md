@@ -1,4 +1,4 @@
-# Line-Following Robot
+# Autonomous-Car
 
 This project implements a simple line-following robot using an Arduino microcontroller, three photoresistor, and two DC motors controlled via an H-bridge driver. The robot follows a black line on a white surface by reading sensor inputs and adjusting motor speeds and directions accordingly.
 
@@ -13,17 +13,17 @@ To build an autonomous vehicle that can follow a line by detecting it with senso
 ## Components
 
 - Arduino Uno (or compatible board)  
-- 3 IR line sensors (Left, Middle, Right)  
-- 2 DC motors with motor driver (e.g., L298N)  
+- 3 LDR line (Left, Middle, Right)  
+- 2 DC motors with motor driver (l293D)  
 - Power supply (battery)  
-- Chassis and wheels  
-- Connecting wires and basic electronic components  
+- Vehicle  
+- Wires and basic electronic components  
 
 ---
 
 ## How It Works
 
-The robot uses three IR sensors to detect the presence of a black line. Based on the sensor states, the Arduino decides whether to move forward, turn left, turn right, or stop.
+The robot uses three photoresistor to detect the presence of a black line. Based on the sensor states, the Arduino decides whether to move forward, turn left, turn right, or stop.
 
 ### Sensor Logic
 
@@ -42,16 +42,30 @@ The robot uses three IR sensors to detect the presence of a black line. Based on
 
 ---
 
-## Pin Configuration
+### L293D Connections
 
-| Component          | Arduino Pin |
-|--------------------|-------------|
-| Left Sensor (LS)   | 6           |
-| Middle Sensor (MS) | 5           |
-| Right Sensor (RS)  | 4           |
-| Left Motor (LM1)   | 12          |
-| Left Motor (LM2)   | 13          |
-| Left Motor Enable (enL) | 11      |
-| Right Motor (RM1)  | 9           |
-| Right Motor (RM2)  | 8           |
-| Right Motor Enable (enR) | 10      |
+| L293D Pin             | Connection                         |
+|-----------------------|-------------------------------------|
+| Power 1               | +9V                                |
+| Input 4               | Pin 8                              |
+| Output 4              | Right Motor positive terminal      |
+| Ground                | Ground of 9V                       |
+| Output 3              | Right Motor negative terminal      |
+| Input 3               | Pin 9                              |
+| Enable 3+4            | Pin 10                             |
+| Power 2               | +9V                                |
+| Input 2               | Pin 13                             |
+| Output 2              | Left Motor negative terminal       |
+| Ground                | Ground of 9V                       |
+| Output 1              | Left Motor positive terminal       |
+| Input 1               | Pin 12                             |
+| Enable 1+2            | Pin 11                             |
+
+### Photoresistor Connections
+
+| Sensor          | Connection |
+|-----------------|------------|
+| Left sensor     | Pin 6      |
+| Middle sensor   | Pin 5      |
+| Right sensor    | Pin 4      |
+
