@@ -1,6 +1,6 @@
 # Line-Following Robot
 
-This project implements a simple line-following robot using an Arduino microcontroller, three infrared (IR) sensors, and two DC motors controlled via an H-bridge driver. The robot follows a black line on a white surface by reading sensor inputs and adjusting motor speeds and directions accordingly.
+This project implements a simple line-following robot using an Arduino microcontroller, three photoresistor, and two DC motors controlled via an H-bridge driver. The robot follows a black line on a white surface by reading sensor inputs and adjusting motor speeds and directions accordingly.
 
 ---
 
